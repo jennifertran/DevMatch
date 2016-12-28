@@ -21,14 +21,39 @@ h1, h2, h3 {
   font-family: 'Open Sans', sans-serif;
 }
 
-body, .navbar {
+.navbar, .home-header {
   //Gradient provided by @_ighosh at uiGradients.com
   background: #FF512F; /* fallback for old browsers */
   background: -webkit-linear-gradient(to left, #FF512F , #DD2476); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to left, #FF512F , #DD2476); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        
 }
 
 .navbar {
   border: none;
+  padding-top: 10px;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: white;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+  color: white;
+  opacity: 0.75;
+}
+
+.navbar-default .navbar-brand {
+  color: white;
+}
+
+.navbar-default .navbar-brand:hover {
+  color: white;
+  opacity: 0.75;
+}
+
+.home-header {
+  margin: -20px;
+  padding-top: 80px;
+  padding-bottom: 100px;
+  color: white;
 }
