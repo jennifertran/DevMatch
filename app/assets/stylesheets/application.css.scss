@@ -55,6 +55,21 @@ h1, h2, h3 {
   }
 }
 
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: white;
+}
+
+.navbar-default .navbar-toggle {
+  border: 2px solid white;
+  &:hover, &:focus {
+    background-color: #FF512F;
+  }
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+  border-style: none;
+}
+
 // Homepage header settings
 .home-header {
   margin: -20px;
