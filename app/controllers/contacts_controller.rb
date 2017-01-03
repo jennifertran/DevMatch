@@ -8,10 +8,14 @@ class ContactsController < ApplicationController
       # Grabs the stuff from the forms and saves it into this object
       @contact = Contact.new(contact_params)
       # .save saves to the database
+      
       if @contact.save
-         redirect_to new_contact_path, notice: "Message sent."
+        flash[:success] = "Message sent."
+         redirect_to new_contact_path
       else
-         redirect_to new_contact_path, notice: "Error occured."
+        # The error messages comes in as an array. We need to join them together
+        flash[:danger] = @contact.errors.full_messages.join(", ")
+         redirect_to new_contact_path
       end
     end
     

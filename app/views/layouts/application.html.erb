@@ -43,6 +43,16 @@
       </div>
     </nav>
     
+    <!-- We place it here to be dynamic for future changes -->
+    <div class="container">
+       <% flash.each do |type, msg| %>
+        <!--
+          Automatically generates divs for us
+          the #{type} is a string interpretor
+        -->
+        <%= content_tag :div, msg, class: "alert alert-#{type}" %>
+      <% end %>
+    </div>
     
     <%= yield %>
   </body>
