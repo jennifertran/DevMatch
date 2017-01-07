@@ -14,7 +14,7 @@ class ContactsController < ApplicationController
         # We need to retrieve info from contact_params
         name = params[:contact][:name]
         email = params[:contact][:email]
-        body = params[:contact][:body]
+        body = params[:contact][:comments]
         
         # Send an email to the contact email
         ContactMailer.contact_email(name, email, body).deliver
