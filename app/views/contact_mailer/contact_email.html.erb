@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
-    <head></head>
-    <body>
-        <!-- Notification for ourseleves -->
-        <p>You have received a message a message from the site's 
-        contact form, from <%= "#{ @name}, #{ @email}."%></p>
-        <p><%= @body %></p>
-    </body>
+  <head></head>
+  <body>
+      <!-- Notification for ourseleves -->
+      <!-- Ruby will look at the ruby tag and convert it into HTML -->
+      <p>You have received a message a message from the site's 
+      contact form, from <%= "#{ @name }, #{ @email }."%></p>
+      <p><%= @body %></p>
+  </body>
 </html>
