@@ -6,4 +6,17 @@ class User < ApplicationRecord
   
   # Each user belongs to a plan
   belongs_to :plan
+  
+  # Whitelist this so we can grab info from the pro form
+  attr_accessor :stripe_card_token
+  
+  def save_with_subscription
+    # We need to check if they pass the devise validation
+    if valid?
+      # This is the line where stripe actually charges the customer
+      customer = Stripe::Customer.create(description: email, plan: plan_id, card: stripe_card_token)
+      self.stripe_customer_token = customer.id
+      save!
+    end
+  end
 end

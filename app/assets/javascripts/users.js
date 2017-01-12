@@ -3,11 +3,14 @@
 $(document).on('turbolinks:load', function(){
   var theForm = $('#pro_form');
   var submitBtn = $('#form-signup-btn');
+  
   // Set Stripe key
   Stripe.setPublishableKey( $('meta[name="stripe-key"]').attr('content')) ;
   
-  // Listen for a click in the submit button, prevent submission behaviour
+  // Listen for a click in the submit button
   submitBtn.click(function(event){
+    
+    // Prevent submission behaviour
     event.preventDefault();
     
     // Grey's out the submit button while user is filling the form
@@ -55,7 +58,7 @@ $(document).on('turbolinks:load', function(){
       
     }
     
-    // Helps us to exit out the function
+    // Exit out the function
     return false;
   });
   
