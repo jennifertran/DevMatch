@@ -5,7 +5,7 @@
     
     <%= csrf_meta_tags %>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800" rel="stylesheet">
-    
+    <%= favicon_link_tag '/favicon-group.ico' %>
     <!-- Responsive on Mobile -->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     
@@ -13,7 +13,12 @@
     
     
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <!-- Stripe JS Lib -->
+    <%= javascript_include_tag "https://js.stripe.com/v2/", type:'text/javascript' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    <!-- Meta tags hold bits and pieces of info -->
+    <%= tag :meta , :name => "stripe-key", :content => STRIPE_PUBLIC_KEY %>
   </head>
 
   <body>
@@ -38,6 +43,16 @@
         
         <!-- Links Here -->
         <div class="collapse navbar-collapse" id="main-nav-collapse">
+          <div class="nav navbar-nav navbar-right">
+            
+            <!-- Show Log Out button if user signs in -->
+            <% if user_signed_in? %>
+              <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"btn btn-default navbar-btn" %>
+            <% else %>
+              <%= link_to "Log In", new_user_session_path, class: "btn btn-default navbar-btn" %>
+            <% end %>
+            
+          </div>
           <ul class="nav navbar-nav navbar-right">
             <!-- Linking pages the Rails way -->
             <!-- The about_path allows us to have more flexability in the routes file in terms of direction -->
@@ -50,7 +65,7 @@
     </nav>
     
     <!-- We place it here to be dynamic for future changes -->
-    <div class="container">
+    <div class="container flash-container">
        <% flash.each do |type, msg| %>
         <!--
           Automatically generates divs for us
