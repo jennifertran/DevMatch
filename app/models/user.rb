@@ -4,8 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   
-  # Each user belongs to a plan
+  # Each user belongs to a plan & has 1 profile
   belongs_to :plan
+  has_one :profile
   
   # Whitelist this so we can grab info from the pro form
   attr_accessor :stripe_card_token
