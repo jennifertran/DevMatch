@@ -28,9 +28,11 @@ h1, h2, h3 {
 // Background of navbar and header on homepage
 .navbar, .home-header {
   //Gradient provided by @_ighosh at uiGradients.com
-  background: #FF512F; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, #FF512F , #DD2476); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, #FF512F , #DD2476); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #24C6DC; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #24C6DC , #514A9D); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #24C6DC , #514A9D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        
+        
 }
 
 
@@ -72,8 +74,23 @@ h1, h2, h3 {
 
 // Homepage header settings
 .home-header {
-  margin: -20px;
+  margin-top: -20px;
   padding-top: 80px;
   padding-bottom: 100px;
   color: white;
+}
+
+.flash-container {
+  position: absolute;
+  width: 100%;
+}
+.alert-notice, .alert-alert {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+  margin-top: -14px;
+}
+
+.home-sign-up {
+  margin-top: 30px;
 }
