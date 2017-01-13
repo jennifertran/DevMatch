@@ -14,7 +14,10 @@ class User < ApplicationRecord
     # We need to check if they pass the devise validation
     if valid?
       # This is the line where stripe actually charges the customer
+      # and starts the subscription
       customer = Stripe::Customer.create(description: email, plan: plan_id, card: stripe_card_token)
+      
+      # Stripe responds back with customer data so we store that to the DB
       self.stripe_customer_token = customer.id
       save!
     end

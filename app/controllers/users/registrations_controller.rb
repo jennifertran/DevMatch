@@ -1,4 +1,10 @@
 class Users::RegistrationsController < Devise::RegistrationsController
+  
+  # Extends the default Devisor behaviour so that
+  # users who are signing up with the pro account is
+  # saved with the special stripe function otherwise,
+  # devise signs up as usual.
+  
   def create
     # super inherits the create action and extends it
     super do |resource|
