@@ -64,9 +64,18 @@ h1, h2, h3 {
 .navbar-default .navbar-toggle {
   border: 2px solid white;
   &:hover, &:focus {
-    background-color: #FF512F;
+    background-color: rgba(255, 255, 255, 0.3);
   }
 }
+
+.nav > li > a {
+  padding-left: 5px;
+}
+
+.container > .navbar-collapse {
+  margin-right: 0px;
+  margin-left: 0px;
+} 
 
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
   border-style: none;
