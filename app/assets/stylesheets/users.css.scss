@@ -1,3 +1,4 @@
+// User Profile Page
 .avatar-show-img {
   width: 128px;
   height: 128px;
@@ -29,5 +30,16 @@
 .well.profile-contact {
   background-color: #5bc0de;
   border-color: #46b8da;
+}
+
+// User Index Page
+.user-index-avatar {
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+}
+
+.well.white-bg {
+  background-color: white;
 }
 
