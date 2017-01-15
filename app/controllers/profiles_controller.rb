@@ -1,5 +1,11 @@
 class ProfilesController < ApplicationController
     
+    # Do this before any of these actions
+    # authenticate user is from devise gem
+    before_action :authenticate_user!
+    
+    before_action :only_current_user
+    
     # Makes takes user to a blank profile form
     # GET to /users/:user_id/profile/new
     def new
@@ -55,11 +61,20 @@ class ProfilesController < ApplicationController
       end
     end
     
-    # Whitelist the form fields to prevent hackers from
-    # adding additional form fields
+   
     private
+      # Whitelist the form fields to prevent hackers from
+      # adding additional form fields
       def profile_params
         params.require(:profile).permit(:first_name, :last_name, :avatar, :job_title, :phone_number, :contact_email, :description)
+      end
+      
+      # Prevents the user from editing other people's pages
+      def only_current_user
+        @user = User.find(params[:user_id])
+        
+        # current_user is from devise
+        redirect_to(root_url) unless @user == current_user
       end
       
 end
