@@ -10,6 +10,8 @@ module UsersHelper
       "<i class='fa fa-cogs'></i>".html_safe
     elsif @user.profile.job_title == "Investor"
       "<i class='fa fa-dollar'></i>".html_safe
+    elsif @user.profile.job_title == "Student"
+      "<i class='fa fa-pencil'></i>".html_safe
     end
   
   end
